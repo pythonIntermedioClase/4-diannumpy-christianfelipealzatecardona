@@ -179,6 +179,7 @@ def obtener_rango(arr, inicio, fin):
     #
     return arr[inicio:fin]
 
+
 def obtener_ultimos(arr, n):
     """
     Retorna los últimos n elementos del array.
@@ -194,8 +195,8 @@ def obtener_ultimos(arr, n):
         obtener_ultimos(VALORES_DECLARADOS, 3)
         -> array([ 450000., 1100000.])  (últimos 3 elementos)
     """
-    # TODO: usa indexación negativa arr[-n:]
-    pass
+    #  usa indexación negativa arr[-n:]
+    return arr[-n:]
 
 
 def invertir_array(arr):
@@ -212,8 +213,8 @@ def invertir_array(arr):
         invertir_array(np.array([1, 2, 3, 4]))
         -> array([4, 3, 2, 1])
     """
-    # TODO: usa slicing con paso -1: arr[::-1]
-    pass
+    #  usa slicing con paso -1: arr[::-1]
+    return arr[::-1]
 
 
 # ===========================================================================
@@ -238,8 +239,8 @@ def calcular_iva_todos(valores, tasa=0.19):
         calcular_iva_todos(np.array([1_000_000, 500_000]))
         -> array([190000.,  95000.])
     """
-    # TODO: retorna valores * tasa (una sola operación, sin ciclo)
-    pass
+    # retorna valores * tasa (una sola operación, sin ciclo)
+    return valores * tasa
 
 
 def calcular_valor_con_iva(valores, tasa=0.19):
@@ -257,10 +258,11 @@ def calcular_valor_con_iva(valores, tasa=0.19):
         calcular_valor_con_iva(np.array([1_000_000, 500_000]))
         -> array([1190000.,  595000.])
     """
-    # TODO:
+    # 
     # 1. Guarda 1 + tasa en una variable factor_con_iva
     # 2. Retorna valores * factor_con_iva
-    pass
+    factor_con_iva = 1 + tasa
+    return valores * factor_con_iva
 
 
 def redondear_a_miles(arr):
@@ -277,11 +279,13 @@ def redondear_a_miles(arr):
         redondear_a_miles(np.array([1_234_567, 890_123]))
         -> array([1235000.,  890000.])
     """
-    # TODO:
+    # :
     # 1. Divide arr entre 1000 y guarda en valor_en_miles
     # 2. Aplica np.round a valor_en_miles y guarda en miles_redondeados
     # 3. Retorna miles_redondeados * 1000
-    pass
+    valor_en_miles = arr/1000
+    miles_redondeados = np.round(valor_en_miles)
+    return miles_redondeados * 1000
 
 
 # ===========================================================================
@@ -306,8 +310,8 @@ def calcular_variacion_absoluta(valores_actuales, valores_anteriores):
         )
         -> array([200000., 100000.,      0.])
     """
-    # TODO: usa np.abs(valores_actuales - valores_anteriores)
-    pass
+    #  usa np.abs(valores_actuales - valores_anteriores)
+    return np.abs(valores_actuales - valores_anteriores)
 
 
 def normalizar_valores(arr):
@@ -328,9 +332,11 @@ def normalizar_valores(arr):
         normalizar_valores(np.array([0, 1_000_000, 2_000_000]))
         -> array([0. , 0.5, 1. ])
     """
-    # TODO: calcula minimo = arr.min(), maximo = arr.max()
+    # calcula minimo = arr.min(), maximo = arr.max()
+    minimo = arr.min()
+    maximo = arr.max()
     #       retorna (arr - minimo) / (maximo - minimo)
-    pass
+    return (arr - minimo) / (maximo - minimo)
 
 
 def aplicar_raiz_cuadrada(arr):
@@ -349,8 +355,8 @@ def aplicar_raiz_cuadrada(arr):
         aplicar_raiz_cuadrada(np.array([0, 100_000, 400_000, 900_000]))
         -> array([  0.      , 316.22...,  632.45...,  948.68...])
     """
-    # TODO: usa np.sqrt(arr)
-    pass
+    #  usa np.sqrt(arr)
+    return np.sqrt(arr)
 
 
 # ===========================================================================
@@ -375,12 +381,16 @@ def contar_con_ciclo(lista, umbral):
         contar_con_ciclo([1_500_000, 850_000, 0, 2_300_000], 1_000_000)
         -> 2
     """
-    # TODO:
+    # :
     # 1. Crea contador = 0, antes del ciclo
+    contador = 0
     # 2. Recorre lista con un ciclo for
+    for i in lista:
     # 3. Si valor > umbral, suma 1 a contador
+        if i > umbral:
+            contador = contador +1
     # 4. Retorna contador
-    pass
+    return contador
 
 
 def sumar_con_ciclo(lista):
@@ -400,12 +410,15 @@ def sumar_con_ciclo(lista):
         sumar_con_ciclo([1_500_000, 850_000, 2_300_000])
         -> 4650000
     """
-    # TODO:
+    # :
     # 1. Crea total = 0, antes del ciclo
+    total = 0
     # 2. Recorre lista con un ciclo for
+    for i in lista:
+        total = total + i
     # 3. Suma cada valor a total
     # 4. Retorna total
-    pass
+    return total
 
 
 def obtener_mascara_mora(dias_mora):
@@ -422,8 +435,8 @@ def obtener_mascara_mora(dias_mora):
         obtener_mascara_mora(np.array([0, 30, 0, 45]))
         -> array([False,  True, False,  True])
     """
-    # TODO: retorna dias_mora > 0
-    pass
+    #  retorna dias_mora > 0
+    return dias_mora > 0
 
 
 def filtrar_valores_con_mora(valores, dias_mora):
