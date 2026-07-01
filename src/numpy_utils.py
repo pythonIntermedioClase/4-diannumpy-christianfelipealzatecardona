@@ -156,9 +156,9 @@ def obtener_rango(arr, inicio, fin):
         obtener_rango(VALORES_DECLARADOS, 2, 5)
         -> array([      0., 2300000.,  950000.])
     """
-    # TODO: usa slicing con arr[inicio:fin]
-    pass
-
+    # TOD: usa slicing con arr[inicio:fin]
+    #
+    return arr[inicio:fin]
 
 def obtener_ultimos(arr, n):
     """

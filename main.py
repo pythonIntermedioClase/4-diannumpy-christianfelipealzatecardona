@@ -40,7 +40,7 @@ from src.numpy_utils import contar_sobre_umbral
 from src.numpy_utils import clasificar_valores_vectorizado
 from src.numpy_utils import aplicar_descuento_vectorizado
 from src.numpy_utils import calcular_sanciones_vectorizadas
-
+from src.numpy_utils import ejercicio
 
 # ---------------------------------------------------------------------------
 # Menú
@@ -236,9 +236,21 @@ OPCIONES = {
     "0": ("Salir",                       None),
 }
 
+def ejercicio():
+    """
+    Dada una lista con 5 elementos de tipo entero, haciendo uso de la repetición for. 
+    muestra en pantalla la suma de esos 5 elementos,
+    par ello vamos a usar 2 formas de suma. Una con variables (de tipo acumulador).
+    Y la segunda forma es usando la instrucción sum.
+   
+    """
+    lista = [10,20,30,40,50]
+    suma = sum(lista)
+    print(suma)
 
 def main():
     """Punto de entrada. Ejecuta el menú interactivo con variable bandera."""
+    ejercicio()
     continuar = True
     while continuar:
         mostrar_menu()
