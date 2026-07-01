@@ -460,10 +460,11 @@ def filtrar_valores_con_mora(valores, dias_mora):
         )
         -> array([ 850000., 2300000.])
     """
-    # TODO:
+    
     # 1. Crea la máscara: mascara = dias_mora > 0
+    mascara = dias_mora > 0
     # 2. Retorna valores[mascara]
-    pass
+    return valores[mascara]
 
 
 def contar_sobre_umbral(arr, umbral):
@@ -481,11 +482,13 @@ def contar_sobre_umbral(arr, umbral):
         contar_sobre_umbral(VALORES_DECLARADOS, 1_000_000)
         -> 4
     """
-    # TODO:
-    # 1. Crea la máscara: mascara = arr > umbral
-    # 2. Cuenta los True con cantidad = np.sum(mascara)
+    # 
+    # 1. Crea la máscara: 
+    mascara = arr > umbral
+    # 2. Cuenta los True con 
+    cantidad = np.sum(mascara)
     # 3. Retorna int(cantidad)
-    pass
+    return int(cantidad)
 
 
 # ===========================================================================
@@ -512,10 +515,12 @@ def clasificar_valores_vectorizado(valores, umbral=1_000_000):
         )
         -> array(['BAJO', 'ALTO', 'BAJO', 'ALTO'], dtype='<U4')
     """
-    # TODO:
+    # 
     # 1. Guarda "ALTO" en categoria_alta y "BAJO" en categoria_baja
     # 2. Retorna np.where(valores > umbral, categoria_alta, categoria_baja)
-    pass
+    categoria_alta = "ALTO"
+    categoria_baja = "BAJO"
+    return np.where(valores > umbral, categoria_alta, categoria_baja)
 
 
 def aplicar_descuento_vectorizado(valores, pagos_voluntarios):
@@ -538,11 +543,13 @@ def aplicar_descuento_vectorizado(valores, pagos_voluntarios):
         )
         -> array([ 900000., 2000000., 1350000.])
     """
-    # TODO:
+    # 
     # 1. Guarda 0.90 en factor_descuento
+    factor_descuento=0.90
     # 2. Calcula valores_con_descuento = valores * factor_descuento
+    valores_con_descuento = valores * factor_descuento
     # 3. Retorna np.where(pagos_voluntarios, valores_con_descuento, valores)
-    pass
+    return (np.where(pagos_voluntarios, valores_con_descuento, valores))
 
 
 def calcular_sanciones_vectorizadas(valores, dias_mora):
